@@ -7,7 +7,7 @@ namespace TestProject2.Helpers
 {
     public class StringHelperTest
     {
-        [Fact]
+        [Fact] //se usa para hacer test a un solo escenario 
         /*
             Arrange (Organizar/Preparar): Se inicializan los objetos, se configuran las dependencias (como mocks) y se establecen los datos de entrada necesarios para el escenario de prueba. 
             Act (Actuar/Ejecutar): Se invoca el método o función que se está probando, realizando la acción principal bajo evaluación. 
@@ -56,7 +56,7 @@ namespace TestProject2.Helpers
             Assert.False(result);
         }
 
-
+        /*
         [Fact]
         public void CountWords_WithMultipleWords_ReturnsCorrectCount()
         {
@@ -121,6 +121,26 @@ namespace TestProject2.Helpers
             //Assert
             Assert.Equal(0, result);
         }
+        */
 
+        [Theory]
+        [InlineData("Brandon", 1)]
+        [InlineData("abc def", 3)]
+        [InlineData("   abc def ghi jkl   ", 4)]
+        [InlineData("", 0)]
+        [InlineData(null, 0)]
+        [InlineData(" ", 0)]
+
+        public void CountWords_WithMultipleWords_ReturnsCorrectCount(string text, int expectedCount)
+        {
+            //Arrange
+            var stringHelper = new StringHelper();
+
+            //Act
+            var result = stringHelper.CountWords(text);
+
+            //Assert
+            Assert.Equal(expectedCount, result);
+        }
     }
 }
