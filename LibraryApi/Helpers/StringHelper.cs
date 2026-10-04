@@ -9,6 +9,8 @@ public class StringHelper
 
     public int CountWords(string text)
     {
+        //pueden suceder multiples escenarios:
+            //un parafo, una palabra, un valor vacio, null, sólo un espacio
         if (string.IsNullOrWhiteSpace(text))
             return 0;
 
@@ -16,6 +18,7 @@ public class StringHelper
 
         return words.Length;
     }
+    //generar las PU de las siguinetes funciones
 
     public string Capitalize(string text)
     {
