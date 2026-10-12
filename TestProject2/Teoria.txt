@@ -9,3 +9,36 @@ Act (Actuar/Ejecutar): Se invoca el método o función que se está probando, re
 Assert (Afirmar/Verificar): Se comprueba si el resultado obtenido coincide con el comportamiento o valor esperado, validando así la corrección del código. 
 */
 
+https://medium.com/@microclip.lakeesha/net-web-api-unit-testing-with-xunit-7da76324cd25
+
+[MemberData]: //es un atributo que permite proporcionar múltiples conjuntos de datos a una prueba parametrizada
+//obteniéndolos desde un método, una propiedad o un campo estático de una clase.
+//en lugar de escribir los valores directamente en el atributo, indicas dónde puede encontrarlos xUnit.
+public class CalculadoraTests
+{
+    public static IEnumerable<object[]> CasosDeSuma =>
+        new List<object[]>
+        {
+            new object[] { 2, 3, 5 },
+            new object[] { 10, 5, 15 },
+            new object[] { -1, 1, 0 }
+        };
+
+    [Theory]
+    [MemberData(nameof(CasosDeSuma))]
+    public void Sumar_DosNumeros_RetornaResultadoEsperado(
+        int a,
+        int b,
+        int esperado)
+    {
+        var calculadora = new Calculadora();
+
+        var resultado = calculadora.Sumar(a, b);
+
+        Assert.Equal(esperado, resultado);
+    }
+}
+
+yield return: C# genera automáticamente un iterador que va proporcionando los elementos cuando alguien los solicita.
+Permite devolver elementos uno por uno de una colección, sin tener que construir y devolver toda la colección manualmente.
+

@@ -124,13 +124,13 @@ namespace TestProject2.Helpers
         */
 
         [Theory]
-        [InlineData("Brandon", 1)]
-        [InlineData("abc def", 3)]
-        [InlineData("   abc def ghi jkl   ", 4)]
-        [InlineData("", 0)]
-        [InlineData(null, 0)]
-        [InlineData(" ", 0)]
-
+        //[InlineData("Brandon", 1)]
+        //[InlineData("abc def", 3)]
+        //[InlineData("   abc def ghi jkl   ", 4)]
+        //[InlineData("", 0)]
+        //[InlineData(null, 0)]
+        //[InlineData(" ", 0)]
+        [MemberData(nameof(GetData))]
         public void CountWords_WithMultipleWords_ReturnsCorrectCount(string text, int expectedCount)
         {
             //Arrange
@@ -141,6 +141,18 @@ namespace TestProject2.Helpers
 
             //Assert
             Assert.Equal(expectedCount, result);
+        }
+
+        public static IEnumerable<object[]> GetData()
+        {
+            yield return new object[] { GetName(), 5 };
+            yield return new object[] { "One two three", 3 };
+            yield return new object[] { "One two three four", 4 };
+
+        }
+        public static string GetName()
+        {
+            return "One two three four five";
         }
     }
 }
