@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TestProject2.TestData;
 
 namespace TestProject2.Helpers
 {
@@ -154,5 +155,24 @@ namespace TestProject2.Helpers
         {
             return "One two three four five";
         }
+
+
+
+
+        [Theory]
+        [ClassData(typeof(StringHelperTestsData1))]
+        public void CountWords_WithMultipleWords_ReturnsCorrectCountClassData(string text, int expectedCount)
+        {
+            //Arrange
+            var stringHelper = new StringHelper();
+
+            //Act
+            var result = stringHelper.CountWords(text);
+
+            //Assert
+            Assert.Equal(expectedCount, result);
+        }
+
+
     }
 }
