@@ -2,10 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xunit.Abstractions;
 
 namespace TestProject2.Helpers
 {
-    public class MathHelperTests
+    public class MathHelperTests(ITestOutputHelper outputHelper)
     {
         private readonly MathHelper _mathHelper = new();
 
@@ -20,7 +21,7 @@ namespace TestProject2.Helpers
 
             // Act
             var result = _mathHelper.Add(a, b);
-
+            outputHelper.WriteLine($"Adding {a} and {b} gives {result}");
             // Assert
             Assert.True(result > 0);
             Assert.Equal(15, result);
@@ -36,7 +37,7 @@ namespace TestProject2.Helpers
 
             // Act
             var result = _mathHelper.Add(a, b);
-
+            outputHelper.WriteLine($"Adding negative {a} and {b} gives {result}");
             // Assert
             Assert.Equal(-15, result);
         }
