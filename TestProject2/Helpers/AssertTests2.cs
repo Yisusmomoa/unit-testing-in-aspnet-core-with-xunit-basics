@@ -25,5 +25,40 @@ namespace TestProject2.Helpers
             Assert.Equal("Hello World", actual);
             Assert.NotEqual("Hello World", actual);
         }
+
+        [Fact]
+        public void Equal_ComparaColecciones()
+        {
+            //Assert.Equal() compara los valores y, cuando recibe colecciones, compara sus elementos en orden.
+            var esperado = new[] { 1, 2, 3 };
+            var actual = new[] { 1, 2, 3 };
+
+            Assert.Equal(esperado, actual);
+            /*La prueba pasa porque ambas colecciones contienen los mismos elementos en el mismo orden, aunque sean arreglos diferentes en memoria.*/
+        }
+
+        [Fact]
+        public void StrictEqual_ComparaColeccionesEstrictamente()
+        {
+            /*
+                Assert.StrictEqual() realiza una comparación estricta de igualdad. 
+                En xUnit v3, para colecciones, exige que se cumplan las condiciones de igualdad estricta definidas por el comparador, en lugar de recurrir 
+                a las comparaciones flexibles de Equal().
+             */
+            //Assert.StrictEqual() comprueba que dos valores sean estrictamente iguales según la semántica de igualdad del tipo que estás comparando.
+            var esperado = new[] { 1, 2, 3 };
+            var actual = new[] { 1, 2, 3 };
+
+            Assert.Equal(esperado, actual);       // Pasa
+            Assert.StrictEqual(esperado, actual); // Falla
+
+            /*
+                Equal() compara los elementos de los arreglos y encuentra que son iguales.
+                StrictEqual() comprueba la igualdad estricta de los arreglos. Como son dos instancias diferentes, la comparación falla.
+             */
+        }
+
+
+
     }
 }

@@ -9,7 +9,7 @@ Esto te permite organizarlas, filtrarlas y ejecutar grupos específicos de prueb
 
 Custom Data Attributes: son atributos personalizados que puedes crear para proporcionar datos a las pruebas parametrizadas de xUnit. (otra manera de proporcionar datos y usarlos en las pruebas)
 
-
+ssert.Equal() y Assert.StrictEqual() se utilizan para comprobar que dos valores son iguales, pero la diferencia está en cómo se compara la igualdad de las colecciones.
 
 
 
