@@ -11,6 +11,9 @@ Custom Data Attributes: son atributos personalizados que puedes crear para propo
 
 ssert.Equal() y Assert.StrictEqual() se utilizan para comprobar que dos valores son iguales, pero la diferencia está en cómo se compara la igualdad de las colecciones.
 
+Assert.Same() y Assert.NotSame() comparan identidad de objetos, es decir, si dos variables apuntan exactamente a la misma instancia en memoria.
+Equal pregunta «¿son iguales?». Same pregunta «¿es el mismo objeto?». NotSame pregunta «¿son objetos distintos?».
+Assert.NotSame(): comprobar que se crea un objeto nuevo
 
 
 /*

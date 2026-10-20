@@ -59,6 +59,37 @@ namespace TestProject2.Helpers
         }
 
 
+        ///////////XUnit Identity Assertions - Assert.Same vs Assert.NotSame | XUnit Tutorial #19
+        [Fact]
+        public void Same_ComparaColecciones()
+        {
+            
+            var esperado = new[] { 1, 2, 3 };
+            var actual = new[] { 1, 2, 3 };
+            //Assert.Same() y Assert.NotSame() comparan identidad de objetos, es decir, si dos variables apuntan exactamente a la misma instancia en memoria.
+            /*
+                Assert.Same() — ¿Es exactamente el mismo objeto?
+                Comprueba si ambas variables hacen referencia a la misma instancia.
+             */
+            Assert.Same(esperado, actual);
+        }
+
+        //[Fact]
+        //public void ProcesarUsuario_DevuelveLaMismaInstancia()
+        //{
+        //    var servicio = new UsuarioService();
+        //    var usuario = new Usuario { Nombre = "Carlos" };
+
+        //    var resultado = servicio.ProcesarUsuario(usuario);
+
+        //    Assert.Same(usuario, resultado);
+        //}
+        //public Usuario ProcesarUsuario(Usuario usuario)
+        //{
+        //debe devolver exactamente ese mismo objeto, sin crear una copia.
+        //    // Realiza alguna operación sobre el usuario.
+        //    return usuario;
+        //}
 
     }
 }
