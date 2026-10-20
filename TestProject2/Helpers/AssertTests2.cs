@@ -91,5 +91,13 @@ namespace TestProject2.Helpers
         //    return usuario;
         //}
 
+
+        [Fact]
+        public void Null_ASsert()
+        {
+            string? data = null;
+            Assert.Null(data);
+
+        }
     }
 }
