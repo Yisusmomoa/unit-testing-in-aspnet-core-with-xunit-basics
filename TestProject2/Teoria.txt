@@ -4,7 +4,8 @@
 [MemberData]: Permite definir los datos de prueba en una propiedad, campo o método estático de la clase de prueba.
 [ClassData]: Utiliza una clase externa que implementa IEnumerable<object[]> para proveer los datos, útil cuando la lógica de generación de datos es compleja.
 TheoryData: en versiones modernas de xUnit puedes utilizar TheoryData<T1, T2> para definir los tipos de los argumentos explícitamente.
-[Trait]: es un atributo que permite clasificar y categorizar tus pruebas mediante pares de clave y valor. Esto te permite organizarlas, filtrarlas y ejecutar grupos específicos de pruebas sin tener que ejecutarlas todas.
+[Trait]: es un atributo que permite clasificar y categorizar tus pruebas mediante pares de clave y valor. 
+Esto te permite organizarlas, filtrarlas y ejecutar grupos específicos de pruebas sin tener que ejecutarlas todas.
 
 Custom Data Attributes: son atributos personalizados que puedes crear para proporcionar datos a las pruebas parametrizadas de xUnit. (otra manera de proporcionar datos y usarlos en las pruebas)
 
