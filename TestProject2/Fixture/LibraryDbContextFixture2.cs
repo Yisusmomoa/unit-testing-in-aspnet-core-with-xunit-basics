@@ -45,6 +45,44 @@ namespace TestProject2.Fixture
             En este caso, LibraryDbContextFixture2 es el responsable de esa preparación y limpieza.|
             
 
+        ejemplo, podrías tener una clase de pruebas como esta:
+        public class BookServiceTests : IClassFixture<LibraryDbContextFixture2>
+        {
+            private readonly LibraryDbContextFixture2 _fixture;
+
+            public BookServiceTests(LibraryDbContextFixture2 fixture)
+            {
+                _fixture = fixture;
+            }
+
+            [Fact]
+            public async Task GetBooks_ReturnsBooks()
+            {
+                // Arrange
+                var context = _fixture.DbContext;
+
+                // Act
+                var books = await context.Books.ToListAsync();
+
+                // Assert
+                Assert.NotEmpty(books);
+            }
+        }
+
+        Ciclo de vida del Fixture
+        1. xUnit crea el Fixture
+   
+           Crea LibraryDbContextFixture2.
+        2. InitializeAsync()
+   
+           Configura EF Core, crea el contexto y carga los datos iniciales.
+        3. Se ejecutan las pruebas
+   
+           Las pruebas acceden al DbContext compartido.
+        4. DisposeAsync()
+   
+           Elimina la base de datos y libera el contexto.
+
          */
 
     }
